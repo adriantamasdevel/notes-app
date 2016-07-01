@@ -55,7 +55,7 @@ The client was built using AngularJS and can be accessed at the following locati
 
 Last step is to setup the API url in the client.
 
-`/notes/public/client/index.html`
+`/public/client/index.html`
 
 Change `var apiEndpoint = "http://notes.app";` to `var apiEndpoint = "http://local.domain";`
 
