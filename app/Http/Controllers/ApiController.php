@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 *
 * @SWG\Swagger(
 *     basePath="/api",
-*     host="notes.app",
+*     host="",
 *     schemes={"http"},
 *     @SWG\Info(
 *         version="1.0",
