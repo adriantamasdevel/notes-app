@@ -14,7 +14,7 @@
 
 $api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1', function ($api) {
+$api->version('v1', ['middleware' => 'App\Http\Middleware\CORS'], function ($api) {
     $api->get('', 'App\Http\Controllers\Api\NotesController@welcome');
     $api->get('notes', 'App\Http\Controllers\Api\NotesController@index');
     $api->post('notes', 'App\Http\Controllers\Api\NotesController@store');
