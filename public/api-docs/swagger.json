@@ -9,7 +9,7 @@
         },
         "version": "1.0"
     },
-    "host": "notes.app",
+    "host": "",
     "basePath": "/api",
     "schemes": [
         "http"
