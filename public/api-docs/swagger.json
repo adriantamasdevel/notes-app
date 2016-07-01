@@ -1,0 +1,183 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Notes API",
+        "description": "API created for censornet",
+        "contact": {
+            "name": "Adrian Tamas",
+            "url": "e-f.ro"
+        },
+        "version": "1.0"
+    },
+    "host": "notes.app",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/notes": {
+            "get": {
+                "tags": [
+                    "notes"
+                ],
+                "summary": "Display a listing of notes.",
+                "description": "Returns all notes from the system",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of notes."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "notes"
+                ],
+                "summary": "Update the specified note in storage.",
+                "description": "Update a single note entry",
+                "consumes": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Fields that need to be updated",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Resource Created"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "notes"
+                ],
+                "summary": "Store a newly created note in storage",
+                "description": "Store a new resource",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "content",
+                        "in": "formData",
+                        "description": "The content of the note",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Resource Created"
+                    }
+                }
+            }
+        },
+        "/notes/{id}": {
+            "get": {
+                "tags": [
+                    "notes"
+                ],
+                "summary": "Display a specific note",
+                "description": "Show a single note",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The id of the note to get.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Resource Created"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "notes"
+                ],
+                "summary": "Remove the specified note from storage.",
+                "description": "Remove a note",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The id of the note to delete.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Resource Deleted"
+                    },
+                    "422": {
+                        "description": "Resource not found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Error": {
+            "required": [
+                "code",
+                "message"
+            ],
+            "properties": {
+                "code": {
+                    "description": "Class ApiController",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "description": "Class ApiController",
+                    "type": "string"
+                }
+            }
+        },
+        "Note": {
+            "required": [
+                "title",
+                "content"
+            ],
+            "properties": {
+                "id": {
+                    "description": "$id",
+                    "type": "integer"
+                },
+                "content": {
+                    "description": "$content",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
